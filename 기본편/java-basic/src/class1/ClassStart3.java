@@ -18,7 +18,7 @@ public class ClassStart3 {
     public static void main(String[] args) {
         Student student1;           // 변수 선언 : Student 타입을 받을 수 있는 변수를 선언
         student1 = new Student();   // Student 인스턴스 생성 -> 생성된 Student 인스턴스 참조값 보관 (생성한 객체에 접근하기 위함)
-        student1.name = "학생1";
+        student1.name = "학생1";      // 클래스를 통해 생성된 객체에 접근하려면 `.` 을 사용하면 된다.
         student1.age = 15;
         student1.grade = 90;
 
