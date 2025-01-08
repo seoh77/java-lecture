@@ -18,4 +18,17 @@ public class MemberConstruct {
         this.age = age;
         this.grade = grade;
     }
+
+    // MemberConstruct 생성자 추가 (오버로딩)
+    MemberConstruct(String name, int age) {
+//        this.name = name;
+//        this.age = age;
+//        this.grade = 50;
+
+        /* 위의 코드를 아래로 변경하여 중복 부분 제거
+          - `this()` 라는 기능을 사용하면 생성자 내부에서 자신의 생성자를 호출할 수 있다. 여기서 `this`는 인스턴스 자신의 참조값을 가리킨다.
+          - `this()` 는 생성자 코드의 첫줄에만 작성할 수 있다. -> 첫번째 줄이 아닌 경우 컴파일 오류 발생
+         */
+        this(name, age, 50);
+    }
 }
