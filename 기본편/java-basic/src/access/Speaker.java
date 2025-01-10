@@ -1,7 +1,8 @@
 package access;
 
 public class Speaker {
-    int volume;
+    // private으로 설정했기 때문에 해당 클래스 안에서만 volume 변수에 접근할 수 있다.
+    private int volume;
 
     Speaker(int volume) {
         this.volume = volume;
