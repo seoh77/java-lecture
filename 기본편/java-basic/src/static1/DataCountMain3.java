@@ -11,5 +11,13 @@ public class DataCountMain3 {
 
         Data3 data3 = new Data3("C");
         System.out.println("C count = " + Data3.count);
+
+        // 추가 : 인스턴스를 통한 접근도 가능하다.
+        //  -> 권장X : count가 인스턴스 변수인지 static 변수인지 혼동이 온다.
+        Data3 data4 = new Data3("D");
+        System.out.println(data4.count);
+
+        // 클래스를 통한 접근
+        System.out.println(Data3.count);
     }
 }
