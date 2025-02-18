@@ -9,6 +9,15 @@ package enumeration.ex3;
     +) swich 문에 사용할 수도 있다.
  */
 
+/*
+    열거형 추가 정리
+    - 열거형은 `java.lang.Enum`을 자동(강제)으로 상속 받는다.
+    - 열거형은 이미 `java.lang.Enum`을 상속 받았기 때문에 추가로 다른 클래스를 상속받을 수 없다.
+    - 열거형은 인터페이스를 구현할 수 있다.
+    - 열거형에 추상 메서드를 선언하고, 구현할 수 있다.
+       -> 이 경우 익명 클래스와 같은 방식을 사용한다.
+ */
+
 public enum Grade {
     BASIC, GOLD, DIAMOND
 }
