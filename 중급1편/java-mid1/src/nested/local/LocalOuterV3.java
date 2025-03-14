@@ -20,6 +20,8 @@ package nested.local;
       `process()` 메서드가 종료되면 `process()` 스택 프레임이 스택 영역에서 제거 되면서 함께 제거된다.
  */
 
+import java.lang.reflect.Field;
+
 public class LocalOuterV3 {
 
     private int outInstanceVar = 3;
@@ -52,5 +54,21 @@ public class LocalOuterV3 {
 
         // printer.print()를 나중에 실행한다. process()의 스택 프레임이 사라진 이후에 실행
         printer.print();    // => `process()` 메서드가 이미 종료되었으므로 해당 지역 변수들도 이미 제거된 상태인데 지역 변수의 값들이 모두 정상적으로 출력
+
+        /*
+            변수 캡처 : 지역 클래스의 인스턴스를 생성하는 시점에 필요한 지역 변수를 복사해서 생성한 인스턴스에 함께 넣어두는 것
+            과정
+             1. LocalPrinter 인스턴스 생성 시도 : 지역 클래스의 인스턴스를 생성할 때 지역 클래스가 접근하는 지역 변수를 확인
+             2. 사용하는 지역 변수 복사 : 지역 클래스가 사용하는 지역 변수를 복사한다.
+             3. 지역 변수 복사 완료 : 복사한 지역 변수를 인스턴스에 포함한다.
+             4. 인스턴스 생성 완료 : 복사한 지역 변수를 포함해서 인스턴스 생성이 완료
+             => `LocalPrinter` 인스턴스에서 `print()` 메서드를 통해 `paramVar`,`localVar`에 접근하면 스택 영역에 있는 지역 변수에 접근하는 것이 아니다.
+                 대신에 인스턴스에 있는 캡처한 변수에 접근한다.
+         */
+        System.out.println("필드 확인");
+        Field[] fields = printer.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            System.out.println("field = " + field);
+        }
     }
 }
