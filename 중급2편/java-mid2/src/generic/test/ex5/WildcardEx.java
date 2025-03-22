@@ -31,10 +31,20 @@ public class WildcardEx {
         System.out.println("이름 = " + t.getName());
     }
 
+    // 제네릭 메서드와 마찬가지로 와일드카드에도 상한 제한을 둘 수 있다.
+    // 여기서는 Animal과 그 하위 타입만 입력 가능하고, 그 외 다른 타입을 입력하면 컴파일 오류가 발생한다.
     static void printWildcardV2(Box<? extends Animal> box) {
         Animal animal = box.get();
         System.out.println("이름 = " + animal.getName());
     }
+
+    /*
+        타입 매개변수가 꼭 필요한 경우
+        : `printAndReturnGeneric()`은 전달한 타입을 명확하게 반환할 수 있다.
+          반면에 `printAndReturnWildcard()`의 경우 전달한 타입을 명확하게 반환할 수 없다. 여기서는 Animal 타입으로 반환한다.
+          메서드의 타입들을 특정 시점에 변경하려면 제네릭 타입이나, 제네릭 메서드를 사용해야 한다.
+          와일드 카드는 이미 만들어진 제네릭 타입을 전달 받아서 활용할 때 사용한다. 따라서 메서드의 타입들을 타입 인자를 통해 변경할 수 없다.
+     */
 
     static <T extends Animal> T printAndReturnGeneric(Box<T> box) {
         T t = box.get();
@@ -43,7 +53,7 @@ public class WildcardEx {
     }
 
     static Animal printAndReturnWildcard(Box<? extends Animal> box) {
-        Animal animal = box.get();
+        Animal animal = box.get();  // `box.get()`을 통해서 꺼낼 수 있는 타입의 최대 부모는 Animal이므로 Animal 타입으로 조회할 수 있다.
         System.out.println("이름 = " + animal.getName());
         return animal;
     }

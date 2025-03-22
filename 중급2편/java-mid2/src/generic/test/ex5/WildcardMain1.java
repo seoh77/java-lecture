@@ -18,6 +18,8 @@ public class WildcardMain1 {
 
         WildcardEx.printGenericV2(dogBox);
         WildcardEx.printWildcardV2(dogBox);
+        WildcardEx.printWildcardV2(catBox);
+//        WildcardEx.printWildcardV2(objBox); // => Animal이나 그 하위 타입만 가능
 
         Dog dog = WildcardEx.printAndReturnGeneric(dogBox);
         Animal animal = WildcardEx.printAndReturnWildcard(dogBox);
