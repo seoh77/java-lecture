@@ -1,4 +1,4 @@
-package generic.test.ex5;
+package generic.ex5;
 
 /*
     타입 이레이저
