@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 public class MyArrayListV4<E> {
 
-    private static final int DEFAULT_CAPACITY = 5;  // 리스트를 생성할 때 사용하는 기본 배열의 크기
+    private static final int DEFAULT_CAPACITY = 5;
 
-    private Object[] elementData;   // 다양한 타입의 데이터를 보관하기 위해 `Object` 배열 사용
+    private Object[] elementData;
     private int size = 0;
 
+    // 제네릭은 런타임에 이레이저에 의해 타입 정보가 사라진다. 따라서 런타임에 타입 정보가 필요한 생성자에 사용할 수 없다.
+    // => 대신에 모든 데이터를 담을 수 있는 `Ojbect`를 그대로 사용해야 한다.
     public MyArrayListV4() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
